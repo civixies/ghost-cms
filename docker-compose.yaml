@@ -1,25 +1,7 @@
-version: '3'
+version : "3"
 services:
- mysql:
-   image: mysql:5.7
-   volumes:
-     - db_data:/var/lib/mysql
-   restart: always
-   environment:
-     MYSQL_ROOT_PASSWORD: monPassword
-     MYSQL_DATABASE: ghost
-     MYSQL_USER: ghostuser
-     MYSQL_PASSWORD: ocrpassword
-
- ghost:
-   depends_on:
-     - mysql
-   image: my_ghost
-   ports:
-     - "8080:80"
-   restart: always
-   environment:
-    NODE_ENV: production
-
-volumes:
- db_data: {}
+  database:
+    image: mysql:latest
+    volumes:
+      - database_data:/d/Users/Cyprien/Documents/Github
+    restart: always

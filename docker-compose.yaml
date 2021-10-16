@@ -3,5 +3,24 @@ services:
   database:
     image: mysql:latest
     volumes:
-      - database_data:/d/Users/Cyprien/Documents/Github
+      #- database_data:/d/Users/Cyprien/Documents/Github
+      - db_data:/var/lib/mysql
     restart: always
+    environment:
+      MYSQL_DATABASE: db_blog
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_USER: bloggy
+      MYSQL_PASSWORD: bloggeur
+      
+  le_blog:
+    depend_on:
+      - database 
+    image: my_ghost
+    ports: 
+      - "8080:80"
+    restart: always
+    environment:
+      NODE_ENV: production
+
+  volumes:
+    database_data = {}

@@ -4,7 +4,7 @@ services:
     image: mysql:latest
     volumes:
       #- database_data:/d/Users/Cyprien/Documents/Github
-      - db_data:/var/lib/mysql
+      - database_data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_DATABASE: db_blog
@@ -23,4 +23,4 @@ services:
       NODE_ENV: production
 
   volumes:
-    db_data: {}
+    database_data: {}

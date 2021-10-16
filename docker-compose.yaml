@@ -23,4 +23,4 @@ services:
       NODE_ENV: production
 
   volumes:
-    database_data = {}
+    db_data: {}

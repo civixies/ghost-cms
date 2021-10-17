@@ -1,7 +1,7 @@
 version : "3"
 services:
   database:
-    image: mysql:latest
+    image: mysql:5.7
     volumes:
       #- database_data:/d/Users/Cyprien/Documents/Github
       - database_data:/var/lib/mysql
@@ -13,14 +13,14 @@ services:
       MYSQL_PASSWORD: bloggeur
       
   le_blog:
-    depend_on:
+    depends_on:
       - database 
-    image: my_ghost
+    image: ghost:latest
     ports: 
       - "8080:80"
     restart: always
     environment:
       NODE_ENV: production
 
-  volumes:
-    database_data: {}
+volumes:
+  database_data: {}

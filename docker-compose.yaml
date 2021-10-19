@@ -15,7 +15,7 @@ services:
   le_blog:
     depends_on:
       - database 
-    image: ghost:latest
+    image: my_ghost
     ports: 
       - "8080:80"
     restart: always

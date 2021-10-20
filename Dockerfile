@@ -13,4 +13,6 @@ RUN npm install
 EXPOSE 2368
 VOLUME /app/logs
 
+ENV TZ America/Montreal
+
 CMD npm run start

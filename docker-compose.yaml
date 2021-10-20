@@ -3,7 +3,7 @@ services:
   my_db:
     image: mysql:latest
     volumes:
-      - my_data: /var/lib/mysql
+      - my_data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_DATABASE: 'standard_database'
@@ -17,15 +17,11 @@ services:
       - my_db
     image: ghost:latest
     #image: my_ghost
+    ports:
+     - "8080:80"
     restart: always
     environment:
-      database__client: mysql
-      database__connection__host: db
-      database__connection__user: root
-      database__connection__password: example
-      database__connection__database: ghost
       NODE_ENV: development
-      url: http://localhost:8080
 
 volumes:
-  my_data: {}
+    my_data: {}
